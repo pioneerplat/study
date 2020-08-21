@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         4 버튼을 루트 뷰에 추가한다.
          */
         
-        // 버튼 인스턴스를 생성하고, 속성을 설정한다.
+        // 버튼 인스턴스(객체)를 생성하고, 속성을 설정한다.
         let btn = UIButton(type: UIButton.ButtonType.system)            //1
         btn.frame = CGRect(x: 50, y: 100, width: 150, height: 30)   //2
         btn.setTitle("테스트 버튼", for: UIControl.State.normal)       //3
@@ -36,6 +36,8 @@ class ViewController: UIViewController {
         self.view.addSubview(btn)
         
         //버튼의 이벤트와 메소드 btnOnclick(_:)을 연결한다.
+        //첫번째 인자갑: 호출할 메소드가 있는 인스턴스를 가리킨다. 여기선
+        //두번째 인자갑: 호출할 메소드 #selector() 구문을 사용
         btn.addTarget(self, action: #selector(btnOnClick(_:)), for: .touchUpInside)
     }
     //사용자가 버튼을 터치했을 때 반응할 액션 메소드.
