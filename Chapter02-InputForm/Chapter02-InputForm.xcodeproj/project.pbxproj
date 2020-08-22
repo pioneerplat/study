@@ -13,6 +13,7 @@
 		255E07EA24F043DF00E40557 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255E07E824F043DF00E40557 /* Main.storyboard */; };
 		255E07EC24F043E000E40557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 255E07EB24F043E000E40557 /* Assets.xcassets */; };
 		255E07EF24F043E000E40557 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255E07ED24F043E000E40557 /* LaunchScreen.storyboard */; };
+		256087AC24F0BF7A00169637 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256087AB24F0BF7A00169637 /* ReadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		255E07EB24F043E000E40557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		255E07EE24F043E000E40557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		255E07F024F043E000E40557 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		256087AB24F0BF7A00169637 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				255E07E224F043DF00E40557 /* AppDelegate.swift */,
 				255E07E424F043DF00E40557 /* SceneDelegate.swift */,
 				255E07E624F043DF00E40557 /* ViewController.swift */,
+				256087AB24F0BF7A00169637 /* ReadViewController.swift */,
 				255E07E824F043DF00E40557 /* Main.storyboard */,
 				255E07EB24F043E000E40557 /* Assets.xcassets */,
 				255E07ED24F043E000E40557 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				255E07E724F043DF00E40557 /* ViewController.swift in Sources */,
 				255E07E324F043DF00E40557 /* AppDelegate.swift in Sources */,
+				256087AC24F0BF7A00169637 /* ReadViewController.swift in Sources */,
 				255E07E524F043DF00E40557 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
