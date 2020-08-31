@@ -90,6 +90,9 @@
                                                         <segment title="남"/>
                                                         <segment title="여"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="changeGender:" destination="hUc-Fn-8Lu" eventType="valueChanged" id="Pxg-7v-G4x"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -111,6 +114,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KMm-vS-SjV">
                                                     <rect key="frame" x="310" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="changeMarried:" destination="hUc-Fn-8Lu" eventType="valueChanged" id="dpK-vz-OAR"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -126,6 +132,9 @@
                     <navigationItem key="navigationItem" title="사용자 정보" id="YTt-AI-B6k"/>
                     <connections>
                         <outlet property="account" destination="fSh-Gf-a5c" id="Gdr-Fa-e6H"/>
+                        <outlet property="gender" destination="NVV-6h-blN" id="EPE-mO-Nc6"/>
+                        <outlet property="married" destination="KMm-vS-SjV" id="uJq-Xr-oBA"/>
+                        <outlet property="name" destination="In7-bC-jnF" id="ReU-hz-0bX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKV-Mu-Hcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
