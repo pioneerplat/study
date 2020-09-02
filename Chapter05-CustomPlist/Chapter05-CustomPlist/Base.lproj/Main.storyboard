@@ -134,7 +134,7 @@
                         <outlet property="account" destination="fSh-Gf-a5c" id="Gdr-Fa-e6H"/>
                         <outlet property="gender" destination="NVV-6h-blN" id="EPE-mO-Nc6"/>
                         <outlet property="married" destination="KMm-vS-SjV" id="uJq-Xr-oBA"/>
-                        <outlet property="name" destination="In7-bC-jnF" id="ReU-hz-0bX"/>
+                        <outlet property="name" destination="In7-bC-jnF" id="ArQ-wi-QYU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKV-Mu-Hcs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

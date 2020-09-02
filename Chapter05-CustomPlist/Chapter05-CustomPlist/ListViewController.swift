@@ -73,29 +73,87 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
         self.accountlist = accountlist
         // 3. "selectedAccount" 키로 저장된 값을 읽어온다
         // 4. 값이 있을 경우 account 텍스트 필드의 값으로 대입
-        if let account = plist.string(forKey: "selectedAccount") {
+        if let account = plist.string(forKey: "selectedAccount") {  // 1 선택된 계정에 대한 커스텀 프로퍼티 파일을 읽어와 세팅한다.
             self.account.text = account
+            
+          
+            let customplist = "\(account).plist"    // 읽어올 파일명
+            // 2 앱 내에 정의된 문서 디렉터리 경로를 가져온 다음, 파일명을 조합하여 전체 경로를 구성한다.
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let path = paths[0] as NSString
+            let clist = path.strings(byAppendingPaths: [customplist]).first!
+            // 3 저장된 파일을 읽어와서 딕셔너리 객체로 전환한다.
+            let data = NSDictionary(contentsOfFile: clist)
+            // 4 "name" 키에 저장된 값을 꺼내어 이름 레이블에 세팅한다.
+            self.name.text = data?["name"] as? String
+            // 5 "gender" 키에 저장된 값을 꺼내어 세그먼트 컨트롤에 세팅한다. 만약 값이 없다면 0으로 설정한다.
+            self.gender.selectedSegmentIndex = data?["gender"] as? Int ?? 0
+            // 6 "married" 키에 저장된 값을 꺼내어 스위치 컨트롤에 세팅한다. 만약 값이 없다면 false로 설정한다.
+            self.married.isOn = data?["married"] as? Bool ?? false
+            
+            
+            // 사용자 계정의 값이 비어 있다면 값을 설정하는 것을 막는다.
+            if (self.account.text?.isEmpty)! {
+                self.account.placeholder = "등록된 계정이 없습니다."
+                self.gender.isEnabled = false
+                self.married.isEnabled = false
+            }
         }
+        
+        // 내비게이션 바에 newAccount 메소드와 연결된 버튼을 추가한다.
+        let addBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(newAccount(_:)))
+        self.navigationItem.rightBarButtonItems = [addBtn]
     }
     
     @IBAction func changeGender(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex // 0이면 남자, 1이면 여자
+        
+        // STEP 8) 저장 로직 시작
+        let customPlist = "\(self.account.text!).plist" // 읽어올 파일명
+        
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let path = paths[0] as NSString
+        let plist = path.strings(byAppendingPaths: [customPlist]).first!
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+        
+        data.setValue(value, forKey: "gender")
+        data.write(toFile: plist, atomically: true)
+        
+        
+        /* //세그먼트 컨트롤의 값 변화에 반응하도록 설정됨
         let plist = UserDefaults.standard       // 기본 저장소 객체를 가져온다.
         plist.set(value, forKey: "gender")      // "gender"라는 키로 값을 저장한다.
         plist.synchronize()                     // 동기화 처리
+        */
     }
     
     @IBAction func changeMarried(_ sender: UISwitch) {
         let value = sender.isOn                 // true면 기혼, false면 미혼
+    
+        // STEP 10) 저장 로직 시작
+        let customPlist = "\(self.account.text!).plist"  // 읽어올 파일명
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let path = paths[0] as NSString
+        let plist = path.strings(byAppendingPaths: [customPlist]).first!
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
         
+        data.setValue(value, forKey: "married")
+        data.write(toFile: plist, atomically: true)
+        
+        // 값이 제대로 저장되었는지 확인
+        print("custom plist = \(plist)")
+        
+        /*
         let plist = UserDefaults.standard       // 기본 저장소 객체를 가져온다.
         plist.set(value, forKey: "married")     // "married"라는 키로 값을 저장한다.
         plist.synchronize()                     // 동기화 처리
+        */
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 두 번째 셀이 클릭되었을 때에만 입력이 가능한 알림창을 띄워 이름을 수정할 수 있도록 한다.
-        if indexPath.row == 1 {
+        //0이 아니라 1, 계정정보가 비어있지 않을때만 if문을 실행
+        if indexPath.row == 1 && !(self.account.text?.isEmpty)! {
             let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: UIAlertController.Style.alert)
             //입력 필드 추가
             alert.addTextField(configurationHandler: {
@@ -109,10 +167,26 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
                 // 사용자가 OK 버튼을 누르면 입력 필드에 입력된 값을 저장한다.
                 let value = alert.textFields?[0].text
                 
+                // STEP 6) 저장 로직 시작
+                // 현재 입력된 계정을 바탕으로 읽어올 커스텀 프로퍼티 파일명을 정의. 계정명이"abc@naver.com"이라면 읽어올 파일명은 "abc@naver.com.plist"가 되는 식
+                let customPlist = "\(self.account.text!).plist" // 읽어올 파일명
+                // 앱 내에 생성된 문서 디렉터리 경로를 구함
+                let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+                let path = paths[0] as NSString
+                // 1과 2에서 생성된 값을 합쳐 커스텀 프로퍼티 파일을 읽어옴
+                let plist = path.strings(byAppendingPaths: [customPlist]).first!
+                // 읽어온 파일을 딕셔너리 객체로 변환. 만약 해당 위치에 파일이 없다면 새로운 딕셔너리 객체를 생성
+                let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+                // 입력된 이름값을 딕셔너리 객체에 "name" 키로 저장
+                data.setValue(value, forKey: "name")
+                 // 딕셔너리 객체를 커스텀 프로퍼티 파일로 저장
+                data.write(toFile: plist, atomically: true)
+                
+                /*  //이름을 입력받아 UserDefaults 객체에 저장함
                 let plist = UserDefaults.standard       // 기본 저장소를 가져온다.
                 plist.setValue(value, forKey: "name")   // "name"이라는 키로 값을 저장한다.
                 plist.synchronize()                     // 동기화 처리
-                
+                */
                 self.name.text = value
                 
                 // 알림창을 띄움
@@ -126,8 +200,22 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
     }
     
     
-    @objc func pickerDone(_ sender: Any) {
+    @objc func pickerDone(_ sender: Any) {  // 사용자 계정을 변경할 때마다 실행하는 메소드
         self.view.endEditing(true)
+        
+        // 선택된 계정에 대한 커스텀 프로퍼티 파일을 읽어와 세팅한다.
+        if let _account = self.account.text {
+            let customPlist = "\(_account).plist" // 읽어올 파일명
+            
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let path = paths[0] as NSString
+            let clist = path.strings(byAppendingPaths: [customPlist]).first!
+            let data = NSDictionary(contentsOfFile: clist)
+            
+            self.name.text = data?["name"] as? String
+            self.gender.selectedSegmentIndex = data?["gender"] as? Int ?? 0
+            self.married.isOn = data?["married"] as? Bool ?? false
+        }
     }
     
     @objc func newAccount(_ sender: Any) {
@@ -170,6 +258,10 @@ class ListViewController: UITableViewController, UIPickerViewDelegate, UIPickerV
                 // 사용자가 신규 계정을 등록했을 때, 그 계정값을 받아 selectedAccount 키로 저장하는 내용
                 plist.set(account, forKey: "selectedAccount")
                 plist.synchronize()
+                
+                // 입력 항목을 활성화 한다.
+                self.gender.isEnabled = true
+                self.married.isEnabled = true
             }
         }))
         
