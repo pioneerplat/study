@@ -1,0 +1,6 @@
+framework module Pods_KingPleTalk {
+  umbrella header "Pods-KingPleTalk-umbrella.h"
+
+  export *
+  module * { export * }
+}
