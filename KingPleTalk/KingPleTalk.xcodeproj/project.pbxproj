@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2500FDAB250A915000D09903 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2500FDAA250A915000D09903 /* LoginViewController.swift */; };
 		259E315425069F1500DA900C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E315325069F1500DA900C /* AppDelegate.swift */; };
 		259E315625069F1500DA900C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E315525069F1500DA900C /* SceneDelegate.swift */; };
 		259E315825069F1500DA900C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E315725069F1500DA900C /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0A84C927040E6A22400EEDA4 /* Pods-KingPleTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingPleTalk.release.xcconfig"; path = "Target Support Files/Pods-KingPleTalk/Pods-KingPleTalk.release.xcconfig"; sourceTree = "<group>"; };
 		168CF362A747116008869053 /* Pods-KingPleTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingPleTalk.debug.xcconfig"; path = "Target Support Files/Pods-KingPleTalk/Pods-KingPleTalk.debug.xcconfig"; sourceTree = "<group>"; };
+		2500FDAA250A915000D09903 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		259E315025069F1500DA900C /* KingPleTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingPleTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		259E315325069F1500DA900C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		259E315525069F1500DA900C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,9 +80,10 @@
 				259E315325069F1500DA900C /* AppDelegate.swift */,
 				259E315525069F1500DA900C /* SceneDelegate.swift */,
 				259E315725069F1500DA900C /* ViewController.swift */,
+				259E315925069F1500DA900C /* Main.storyboard */,
+				2500FDAA250A915000D09903 /* LoginViewController.swift */,
 				25DA6ECC2506AC24005F313F /* RemoteConfigDefaults.plist */,
 				25DA6ECA25069FFF005F313F /* GoogleService-Info.plist */,
-				259E315925069F1500DA900C /* Main.storyboard */,
 				259E315C25069F1700DA900C /* Assets.xcassets */,
 				259E315E25069F1700DA900C /* LaunchScreen.storyboard */,
 				259E316125069F1700DA900C /* Info.plist */,
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2500FDAB250A915000D09903 /* LoginViewController.swift in Sources */,
 				259E315825069F1500DA900C /* ViewController.swift in Sources */,
 				259E315425069F1500DA900C /* AppDelegate.swift in Sources */,
 				259E315625069F1500DA900C /* SceneDelegate.swift in Sources */,

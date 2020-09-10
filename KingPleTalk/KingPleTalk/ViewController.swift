@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             make.center.equalTo(self.view)  //  view의 center로 가도록
         }
         box.image = #imageLiteral(resourceName: "loading_icon")
-        self.view.backgroundColor = UIColor(hex: "#000000ff")
+        //self.view.backgroundColor = UIColor(hex: "#000000ff")
         //self.view.backgroundColor = UIColor(red: 0.9, green: 0.3, blue: 0.5, alpha: 1)
        
         remoteConfig = RemoteConfig.remoteConfig()
@@ -65,8 +65,14 @@ class ViewController: UIViewController {
                 exit(0) //exit(0)을 실행하면 앱이 종료
             }))
             self.present(alert, animated: true, completion: nil)
+        } else {    // 앱이 성공적으로 연결 되었을 때
+            //뷰컨트롤러를 객체화 시킴
+            let loginVC = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+            
+            //객체화 시킨 뷰컨트롤러(loginVC)를 화면에 띄움
+            self.present(loginVC, animated: false, completion: nil)
         }
-        
+        self.view.backgroundColor = UIColor(hex: color!)
     }
 
 
@@ -103,6 +109,7 @@ extension UIColor {
         return nil
     }
 }
+
 /*
 extension UIColor {
     convenience init(hex: String) {
@@ -120,8 +127,10 @@ extension UIColor {
         self.init(
             red: CGFloat(r) / 0xff,
             green: CGFloat(g) / 0xff,
-            blue: CGFloat(b) / 0xff, alpha: 1
+            blue: CGFloat(b) / 0xff,
+            alpha: 1
         )
     }
 }
  */
+ 

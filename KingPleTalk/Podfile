@@ -19,5 +19,6 @@ pod 'Firebase/Firestore'
 
 pod 'SnapKit', '~> 5.0.0'
 pod 'Firebase/RemoteConfig'
+pod 'TextFieldEffects'
 
 end

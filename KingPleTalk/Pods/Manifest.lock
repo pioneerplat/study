@@ -342,6 +342,7 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
   - SnapKit (5.0.1)
+  - TextFieldEffects (1.6.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -349,6 +350,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/RemoteConfig
   - SnapKit (~> 5.0.0)
+  - TextFieldEffects
 
 SPEC REPOS:
   trunk:
@@ -373,6 +375,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SnapKit
+    - TextFieldEffects
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -396,7 +399,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
 
-PODFILE CHECKSUM: 5d628c63e62a5430def2f27b2bbfec57a1183bb7
+PODFILE CHECKSUM: 1e4ff020af9c1ed78e05961645bb2a074e4af457
 
 COCOAPODS: 1.9.3
