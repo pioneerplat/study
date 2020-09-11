@@ -14,6 +14,7 @@
 		259E315B25069F1500DA900C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259E315925069F1500DA900C /* Main.storyboard */; };
 		259E315D25069F1700DA900C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 259E315C25069F1700DA900C /* Assets.xcassets */; };
 		259E316025069F1700DA900C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 259E315E25069F1700DA900C /* LaunchScreen.storyboard */; };
+		25D6EB97250B486800FA8BA3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D6EB96250B486800FA8BA3 /* SignupViewController.swift */; };
 		25DA6ECB25069FFF005F313F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25DA6ECA25069FFF005F313F /* GoogleService-Info.plist */; };
 		25DA6ECD2506AC24005F313F /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25DA6ECC2506AC24005F313F /* RemoteConfigDefaults.plist */; };
 		8765C1629CCB06040F7EDBF9 /* Pods_KingPleTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FD96DF4A9F52B435078C98 /* Pods_KingPleTalk.framework */; };
@@ -31,6 +32,7 @@
 		259E315C25069F1700DA900C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		259E315F25069F1700DA900C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		259E316125069F1700DA900C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25D6EB96250B486800FA8BA3 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		25DA6ECA25069FFF005F313F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25DA6ECC2506AC24005F313F /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		61FD96DF4A9F52B435078C98 /* Pods_KingPleTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingPleTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				259E315525069F1500DA900C /* SceneDelegate.swift */,
 				259E315725069F1500DA900C /* ViewController.swift */,
 				259E315925069F1500DA900C /* Main.storyboard */,
+				25D6EB96250B486800FA8BA3 /* SignupViewController.swift */,
 				2500FDAA250A915000D09903 /* LoginViewController.swift */,
 				25DA6ECC2506AC24005F313F /* RemoteConfigDefaults.plist */,
 				25DA6ECA25069FFF005F313F /* GoogleService-Info.plist */,
@@ -219,6 +222,7 @@
 			files = (
 				2500FDAB250A915000D09903 /* LoginViewController.swift in Sources */,
 				259E315825069F1500DA900C /* ViewController.swift in Sources */,
+				25D6EB97250B486800FA8BA3 /* SignupViewController.swift in Sources */,
 				259E315425069F1500DA900C /* AppDelegate.swift in Sources */,
 				259E315625069F1500DA900C /* SceneDelegate.swift in Sources */,
 			);
